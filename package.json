@@ -8,6 +8,10 @@
     "html": "lab -L -c -r html -e development -o coverage.html -m 5000 ./test && open coverage.html",
     "docs": "rm -rf ./docs && jsdoc -c ./jsdoc.js && open ./docs/index.html"
   },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:timothyholmes/spicy-set.git"
+  },
   "author": "Tim Holmes",
   "license": "MIT",
   "devDependencies": {
