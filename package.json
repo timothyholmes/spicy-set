@@ -1,0 +1,25 @@
+{
+  "name": "spicy-set",
+  "version": "1.0.0",
+  "description": "Creates Set methods for interacting with objects based on content instead of reference",
+  "main": "index.js",
+  "scripts": {
+    "test": "TESTING=true lab -t 90 -e development -L -v -m 5000 ./test",
+    "html": "lab -L -c -r html -e development -o coverage.html -m 5000 ./test && open coverage.html",
+    "docs": "rm -rf ./docs && jsdoc -c ./jsdoc.js && open ./docs/index.html"
+  },
+  "author": "Tim Holmes",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-plugin-import": "^2.7.0",
+    "jsdoc": "^3.5.4",
+    "lab": "^13.0.4",
+    "minami": "^1.2.3",
+    "should": "^11.2.1",
+    "sinon": "^2.2.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
