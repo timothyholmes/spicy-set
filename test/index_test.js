@@ -28,20 +28,21 @@ const youngThugSoloAlbums = {
 describe('Spicy Set', () => {
   describe('Constructor', () => {
     it('should return a set when called with no arguments', (done) => {
-      const setWithoutArguments = SpicySet();
+      const setWithoutArguments = new SpicySet();
 
       should(setWithoutArguments).be.type('object');
 
       done();
     });
     it('should return a set when called with an iterable', (done) => {
-      const setWithIterable = SpicySet([
+      const setWithIterable = new SpicySet([
         futureSoloAlbums,
         youngThugSoloAlbums,
         _.cloneDeep(futureSoloAlbums)
       ]);
 
       should(setWithIterable).be.type('object');
+
       should(setWithIterable.has(futureSoloAlbums)).equal(true);
       should(setWithIterable.has(youngThugSoloAlbums)).equal(true);
       should(setWithIterable.size).equal(2);
@@ -51,7 +52,7 @@ describe('Spicy Set', () => {
   });
   describe('hasObject', () => {
     it('should return true if object with same content is in set', (done) => {
-      const set = SpicySet();
+      const set = new SpicySet();
 
       set.add(_.cloneDeep(futureSoloAlbums));
 
@@ -61,7 +62,7 @@ describe('Spicy Set', () => {
       done();
     });
     it('should return false if object is not in set', (done) => {
-      const set = SpicySet();
+      const set = new SpicySet();
 
       set.add(_.cloneDeep(futureSoloAlbums));
 
@@ -75,7 +76,7 @@ describe('Spicy Set', () => {
   });
   describe('addObject', () => {
     it('should add the object if not present and return the set', (done) => {
-      const set = SpicySet();
+      const set = new SpicySet();
 
       set.add(_.cloneDeep(futureSoloAlbums));
 
@@ -93,7 +94,7 @@ describe('Spicy Set', () => {
       done();
     });
     it('should not add the object if already present and return the set', (done) => {
-      const set = SpicySet();
+      const set = new SpicySet();
 
       set.add(_.cloneDeep(futureSoloAlbums));
       set.add(_.cloneDeep(youngThugSoloAlbums));
