@@ -35,12 +35,16 @@ describe('Spicy Set', () => {
       done();
     });
     it('should return a set when called with an iterable', (done) => {
-      const setWithIterable = SpicySet([1, 2, 3]);
+      const setWithIterable = SpicySet([
+        futureSoloAlbums,
+        youngThugSoloAlbums,
+        _.cloneDeep(futureSoloAlbums)
+      ]);
 
       should(setWithIterable).be.type('object');
-      should(setWithIterable.has(1)).equal(true);
-      should(setWithIterable.has(2)).equal(true);
-      should(setWithIterable.has(3)).equal(true);
+      should(setWithIterable.has(futureSoloAlbums)).equal(true);
+      should(setWithIterable.has(youngThugSoloAlbums)).equal(true);
+      should(setWithIterable.size).equal(2);
 
       done();
     });
