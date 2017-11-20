@@ -34,7 +34,7 @@ describe('Spicy Set', () => {
 
       done();
     });
-    it('should return a set when called with an iterable', (done) => {
+    it('should return a set when called with an array', (done) => {
       const setWithIterable = new SpicySet([
         futureSoloAlbums,
         youngThugSoloAlbums,
@@ -46,6 +46,23 @@ describe('Spicy Set', () => {
       should(setWithIterable.has(futureSoloAlbums)).equal(true);
       should(setWithIterable.has(youngThugSoloAlbums)).equal(true);
       should(setWithIterable.size).equal(2);
+
+      done();
+    });
+    it('should return a set when called with an iterable', (done) => {
+      const vanillaSetWithIterable = new Set([
+        futureSoloAlbums,
+        youngThugSoloAlbums,
+        _.cloneDeep(futureSoloAlbums)
+      ]);
+
+      const spicySetWithIterable = new SpicySet(vanillaSetWithIterable);
+
+      should(spicySetWithIterable).be.type('object');
+
+      should(spicySetWithIterable.has(futureSoloAlbums)).equal(true);
+      should(spicySetWithIterable.has(youngThugSoloAlbums)).equal(true);
+      should(spicySetWithIterable.size).equal(2);
 
       done();
     });
