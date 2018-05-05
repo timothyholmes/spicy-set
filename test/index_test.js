@@ -129,4 +129,15 @@ describe('Spicy Set', () => {
       done();
     });
   });
+
+  describe('sort', () => {
+    it('should sort the set based on callback', (done) => {
+      const set = new SpicySet([4, 1, 3, 2, 4, 3, 1]);
+
+      should(set.toSortedArray()).deepEqual([1, 2, 3, 4]);
+      should(set.toSortedArray((a, b) => b - a)).deepEqual([4, 3, 2, 1]);
+
+      done();
+    });
+  });
 });
