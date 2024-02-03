@@ -3,6 +3,7 @@ const _ = require('lodash');
 const Lab = require('lab');
 const should = require('should');
 const SpicySet = require('../lib/index');
+const Sinon = require('sinon');
 
 exports.lab = Lab.script();
 const lab = exports.lab;
@@ -74,7 +75,7 @@ describe('Spicy Set', () => {
       set.add(_.cloneDeep(futureSoloAlbums));
 
       should(set.hasObject(futureSoloAlbums)).equal(true);
-      should(set.has(futureSoloAlbums)).equal(false);
+      should(set.has(futureSoloAlbums)).equal(true);
 
       done();
     });
@@ -84,7 +85,7 @@ describe('Spicy Set', () => {
       set.add(_.cloneDeep(futureSoloAlbums));
 
       should(set.hasObject(futureSoloAlbums)).equal(true);
-      should(set.has(futureSoloAlbums)).equal(false);
+      should(set.has(futureSoloAlbums)).equal(true);
       should(set.hasObject(youngThugSoloAlbums)).equal(false);
       should(set.has(youngThugSoloAlbums)).equal(false);
 
@@ -99,14 +100,14 @@ describe('Spicy Set', () => {
 
       // check the inventory before we add to it
       should(set.hasObject(futureSoloAlbums)).equal(true);
-      should(set.has(futureSoloAlbums)).equal(false);
+      should(set.has(futureSoloAlbums)).equal(true);
       should(set.hasObject(youngThugSoloAlbums)).equal(false);
       should(set.has(youngThugSoloAlbums)).equal(false);
 
       // add the object to the set and check the inventory
       should(set.addObject(_.cloneDeep(youngThugSoloAlbums))).equal(set);
       should(set.hasObject(youngThugSoloAlbums)).equal(true);
-      should(set.has(youngThugSoloAlbums)).equal(false);
+      should(set.has(youngThugSoloAlbums)).equal(true);
 
       done();
     });
@@ -117,14 +118,47 @@ describe('Spicy Set', () => {
       set.add(_.cloneDeep(youngThugSoloAlbums));
 
       should(set.hasObject(futureSoloAlbums)).equal(true);
-      should(set.has(futureSoloAlbums)).equal(false);
+      should(set.has(futureSoloAlbums)).equal(true);
       should(set.hasObject(youngThugSoloAlbums)).equal(true);
-      should(set.has(youngThugSoloAlbums)).equal(false);
+      should(set.has(youngThugSoloAlbums)).equal(true);
 
       // add the object to the set and check the inventory
       should(set.addObject(_.cloneDeep(youngThugSoloAlbums))).equal(set);
       should(set.hasObject(youngThugSoloAlbums)).equal(true);
-      should(set.has(youngThugSoloAlbums)).equal(false);
+      should(set.has(youngThugSoloAlbums)).equal(true);
+
+      done();
+    });
+  });
+  describe('delete', () => {
+    it('should remove an object from the set', (done) => {
+      const set = new SpicySet();
+
+      set.add(_.cloneDeep(futureSoloAlbums));
+
+      // check the inventory before we add to it
+      should(set.has(futureSoloAlbums)).equal(true);
+
+      // add the object to the set and check the inventory
+      should(set.delete(_.cloneDeep(futureSoloAlbums))).equal(set);
+      should(set.hasObject(futureSoloAlbums)).equal(false);
+      should(set.has(futureSoloAlbums)).equal(false);
+
+      done();
+    });
+  });
+  describe('forEach', () => {
+    it('should remove an object from the set', (done) => {
+      const set = new SpicySet();
+
+      set.add(_.cloneDeep(futureSoloAlbums));
+      set.add(_.cloneDeep(youngThugSoloAlbums));
+
+      const stub = Sinon.stub();
+
+      set.forEach(stub);
+
+      should(stub.calledTwice).equal(true);
 
       done();
     });

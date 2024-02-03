@@ -9,7 +9,7 @@ Creates `Set` methods for interacting with objects based on content instead of r
 const SpicySet = require('spicy-set');
 
 const vanillaSet = new Set();
-const spicySet = SpicySet();
+const spicySet = new SpicySet();
 
 vanillaSet.add({ hello: 'world' });
 spicySet.add({ hello: 'world' });

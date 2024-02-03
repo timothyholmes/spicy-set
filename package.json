@@ -15,15 +15,16 @@
   "author": "Tim Holmes",
   "license": "MIT",
   "devDependencies": {
-    "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-plugin-import": "^2.7.0",
-    "jsdoc": "^3.5.4",
-    "lab": "^13.0.4",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.29.1",
+    "jsdoc": "^4.0.2",
+    "lab": "^13.1.0",
     "minami": "^1.2.3",
     "should": "^11.2.1",
-    "sinon": "^2.2.0"
+    "sinon": "^17.0.1"
   },
   "dependencies": {
-    "lodash": "^4.17.4"
+    "fast-json-stringify": "^5.11.1",
+    "lodash": "^4.17.21"
   }
 }
