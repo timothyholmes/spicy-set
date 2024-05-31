@@ -4,7 +4,7 @@
   "description": "Creates Set methods for interacting with objects based on content instead of reference",
   "main": "index.js",
   "scripts": {
-    "test": "TESTING=true lab -t 90 -e development -L -v -m 5000 ./test",
+    "test": "mocha ./test",
     "html": "lab -L -c -r html -e development -o coverage.html -m 5000 ./test && open coverage.html",
     "docs": "rm -rf ./docs && jsdoc -c ./jsdoc.js && open ./docs/index.html"
   },
@@ -18,13 +18,13 @@
     "eslint-config-airbnb-base": "^11.3.2",
     "eslint-plugin-import": "^2.29.1",
     "jsdoc": "^4.0.2",
-    "lab": "^13.1.0",
     "minami": "^1.2.3",
+    "mocha": "^10.4.0",
     "should": "^11.2.1",
     "sinon": "^17.0.1"
   },
   "dependencies": {
-    "fast-json-stringify": "^5.11.1",
+    "fast-stringify": "^2.0.0",
     "lodash": "^4.17.21"
   }
 }
