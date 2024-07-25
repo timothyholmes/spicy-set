@@ -15,17 +15,15 @@ vanillaSet.add({ hello: 'world' });
 spicySet.add({ hello: 'world' });
 
 vanillaSet.has({ hello: 'world' }); // output: false
-spicySet.hasObject({ hello: 'world' }); // output: true
+spicySet.has({ hello: 'world' }); // output: true
 
 vanillaSet.add({ hello: 'world' }); // Adds object, Set is { {hello: 'world'}, {hello: 'world'} }
-spicySet.addObject({ hello: 'world' }); // Doesn't add object, Set is { {hello: 'world'} }
+spicySet.add({ hello: 'world' }); // Doesn't add object, Set is { {hello: 'world'} }
 ```
 
 ## Scripts
 
 - unit tests: `npm test`
-- html test coverage: `npm run html`
-- build and view docs: `npm run docs`
 
 ## Help
 
