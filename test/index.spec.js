@@ -354,4 +354,59 @@ describe('Spicy Set', () => {
       done();
     });
   });
+
+  describe('iterator', () => {
+    it('should iterate with for...of', (done) => {
+      const set = new SpicySet([4, 1, 3, 2, 4, 3, 1]);
+      const resultSet = new Set();
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const s of set) {
+        should(resultSet.has(s)).equal(false);
+        should(set.has(s)).equal(true);
+        resultSet.add(s);
+      }
+
+      should(set.size).equal(resultSet.size);
+
+      done();
+    });
+  });
+
+  describe('entries', () => {
+    it('should iterate with for...of', (done) => {
+      const set = new SpicySet([4, 1, 3, 2, 4, 3, 1]);
+      const resultSet = new Set();
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [key, value] of set.entries()) {
+        should(JSON.parse(key)).deepEqual(value);
+        should(resultSet.has(value)).equal(false);
+        should(set.has(value)).equal(true);
+        resultSet.add(value);
+      }
+
+      should(set.size).equal(resultSet.size);
+
+      done();
+    });
+  });
+
+  describe('values', () => {
+    it('should iterate with for...of', (done) => {
+      const set = new SpicySet([4, 1, 3, 2, 4, 3, 1]);
+      const resultSet = new Set();
+
+      // eslint-disable-next-line no-restricted-syntax
+      for (const value of set.values()) {
+        should(resultSet.has(value)).equal(false);
+        should(set.has(value)).equal(true);
+        resultSet.add(value);
+      }
+
+      should(set.size).equal(resultSet.size);
+
+      done();
+    });
+  });
 });
