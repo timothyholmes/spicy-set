@@ -1,6 +1,6 @@
 {
   "name": "spicy-set",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Creates Set methods for interacting with objects based on content instead of reference",
   "main": "index.js",
   "scripts": {
