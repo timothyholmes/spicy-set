@@ -2,8 +2,8 @@
 
 const _ = require('lodash');
 const should = require('should');
-const SpicySet = require('../lib/index');
 const Sinon = require('sinon');
+const SpicySet = require('../lib/index');
 
 // test data
 const futureSoloAlbums = {
@@ -342,7 +342,6 @@ describe('Spicy Set', () => {
       done();
     });
   });
-
 
   describe('sort', () => {
     it('should sort the set based on callback', (done) => {
